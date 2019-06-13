@@ -1,0 +1,212 @@
+
+/* Global */
+
+body {
+    background-color: #f1f1f1 !important;
+}
+
+
+
+
+/* General */
+
+.page {
+    position: relative;
+    left: 0;
+    top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 350px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px #949494;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 25px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+/* Top */
+
+#header {
+    height: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0.2px 0px 5px #949494;
+}
+
+#header h3 {
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+
+
+
+/* Body */
+
+
+#AtoB {
+    height: 450px;
+}
+
+.input-group-text {
+    background-color: #f1f1f1 !important;
+}
+
+
+/** Toggle Switch Radio **/
+
+
+.toggleChoice {
+    margin-top: 10px;
+	font-size: 0;
+	display: flex;
+    flex-flow: row;
+    flex-wrap: no-wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.toggleChoice input {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9999px;
+}
+
+.toggleChoice input + label {
+    margin: 0;
+    padding: 0.75rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border: solid 1px #ddd;
+    background-color: #fff;
+    font-size: 1rem;
+    line-height: 100%;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    transition: border-color 0.15s ease-out, color 0.25s ease-out,
+    background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+    flex: 0 0 50%;
+}
+
+.toggleChoice input:checked + label {
+    color: #fff;
+    background-color: blue;
+}
+
+.toggleChoice input:hover + label {
+    border-color: black;
+}
+
+.toggleChoiceFirst {
+    border-radius: 6px 0 0 6px;
+	border-right: none;
+}
+
+.toggleChoiceLast {
+    border-radius: 0 6px 6px 0;
+	border-left: none;
+}
+
+.toggleChoice7 input + label {
+    flex-basis: 5%;
+}
+
+
+
+
+
+
+/* Buttons */
+
+#setBtn #getFuelBtn {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#freqRadios {
+    margin: 0 auto !important;
+}
+
+#Calculate {
+    position: relative;
+    top: 120px;
+}
+
+#map {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    position: relative;
+    top: 40px;
+}
+
+
+
+/* Footer */
+
+
+#floating-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    background-color: #00b913;
+    opacity: 0.9;
+    border-top: 2px solid #949494;
+}
+
+#floating-footer button {
+    position: absolute;
+    right: 10px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+#floating-footer button:hover {
+    opacity: 0.6;
+}
+
+/* JS Modifieres */
+
+.popUpWarning {
+    margin: 0 auto;
+    max-height: 50px !important;
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    
+}
+
+/* Desktop*/
+@media only screen and (min-width: 961px) {
+    .page {
+        width: 1100px;
+        margin: 0 auto;
+    }
+
+    .section {
+        width: 33%;
+        margin-bottom: 0px;
+    }
+}

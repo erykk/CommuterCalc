@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Commuter Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8b55a1f36d.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBO2JNfzFTtRY0s1c_0dO83gtNiEjk6X4&callback=initMap">
+    </script>
+    <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+    
+</head>
+<body>
+    <div id="header">
+        <h3 class="display-4">CommuterCalc</h3>
+    </div>
+
+    <div class="page">
+        <div class="section" id="AtoB">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">A</span>
+                </div>
+                <input type="text" class="form-control" placeholder="From..." id="pointA">
+            </div>
+            <br>    
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">B</span>
+                </div>
+                <input type="text" class="form-control" placeholder="To..." id="pointB">
+            </div>
+            <br>
+            <div id="setBtn">
+                <button class="btn btn-outline-primary btn-block" id="calcRoute">Set</button>
+            </div>   
+            <div id="map"></div>         
+        </div>
+
+        <div class="section">
+            <div class="form-group text-center" id="freqRadios">            
+                <div class="toggleChoice">
+                    <input type="radio" name="freqTog" value="onceTog" id="onceTog" class="toggleChoiceFirst">
+                    <label class="toggleChoiceFirst" for="onceTog">Once Off</label>
+
+                    <input type="radio" name="freqTog" value="reg" id="regTog" class="toggleChoiceLast">
+                    <label class="toggleChoiceLast" for="regTog">Regularly</label>
+                </div>
+            </div>
+
+            <div class="form-group mt-4">
+                <div class="toggleChoice toggleChoice7" id="timesPerWeek">
+
+                    <input type="radio" name="tPWTog" value="1" id="oneday" class="toggleChoiceFirst">
+                    <label class="toggleChoiceFirst" for="oneday">1</label>
+
+                    <input type="radio" name="tPWTog" value="2" id="twoday">
+                    <label for="twoday">2</label>
+
+                    <input type="radio" name="tPWTog" value="3" id="threeday">
+                    <label for="threeday">3</label>
+
+                    <input type="radio" name="tPWTog" value="4" id="fourday">
+                    <label  for="fourday">4</label>
+
+                    <input type="radio" name="tPWTog" value="5" id="fiveday">
+                    <label for="fiveday">5</label>
+
+                    <input type="radio" name="tPWTog" value="6" id="sixday">
+                    <label for="sixday">6</label>
+
+                    <input type="radio" name="tPWTog" value="7" id="sevenday" class="toggleChoiceLast">
+                    <label class="toggleChoiceLast" for="sevenday">7</label>
+                </div>
+            </div>
+
+            <div class="form-group mt-4 text-center">
+                <label for="timesPerYear">Times Per Year</label>
+                <select class="form-control" id="timesPerYear">
+                    <option value="52">Weekly (52 weeks)</option>
+                    <option value="26">Every Second Week (26 weeks)</option>
+                    <option value="32">Academic (32 weeks)</option>
+                    <option value="12">Monthly (12 weeks)</option> 
+                    <option value="0">Custom...</option>
+                </select>
+            </div>
+
+            <div class="input-group mt-1">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">...</span>
+                </div>
+                <input type="number" class="form-control" placeholder="In Weeks" id="customFreq">
+            </div>
+
+        </div>
+
+        <div class="section">
+            <div class="input-group mt-1">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">€/L</span>
+                </div>
+                <input type="number" class="form-control" placeholder="Cost of Fuel (€/Litre)" id="costOfFuel">
+            </div>
+            <div id="getFuelBtn" class="mt-2">
+                <button class="btn btn-outline-primary btn-block">Get Current Fuel Price</button>
+            </div>
+            <div class="input-group mt-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">+/-</span>
+                </div>
+                <input type="number" class="form-control" placeholder="Distance +/-" id="distMod">
+            </div>
+            <div id="Calculate" class="mt-2">
+                <button class="btn btn-outline-success btn-block" id="calcBtn">Calculate</button>
+            </div>
+        </div>
+        <div class="section" id="tripResults"></div>
+        <div id="floating-footer">
+            <button>Calculate</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
